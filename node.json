@@ -1,13 +1,51 @@
 {
-  "ruby-env": {
-    "user": "vagrant",
-    "group": "vagrant",
-    "rbenv_path": "$HOME/.rbenv/bin",
-    "rbenv_url": "sstephenson/rbenv.git",
-    "ruby-build_url": "sstephenson/ruby-build.git",
-    "rbenv-default-gems_url": "sstephenson/rbenv-default-gems.git",
-    "rbenv-gem-rehash_url": "sstephenson/rbenv-gem-rehash.git",
-    "versions": ["2.1.5"],
-    "global_version": "2.1.5"
-  }
+  "user": "aono",
+  "group": "aono",
+  "ruby": {
+    "global_version": "2.2.1",
+    "versions": ["2.2.1"],
+    "rbenv": {
+      "repo": "https://github.com/sstephenson/rbenv.git",
+      "plugins": [
+        {
+          "name": "ruby-build",
+          "repo": "https://github.com/sstephenson/ruby-build.git"
+        },
+        {
+          "name": "rbenv-default-gems",
+          "repo": "https://github.com/sstephenson/rbenv-default-gems.git"
+        },
+        {
+          "name": "rbenv-gem-rehash",
+          "repo": "https://github.com/sstephenson/rbenv-gem-rehash.git"
+        },
+        {
+          "name": "rbenv-update",
+          "repo": "https://github.com/rkh/rbenv-update.git"
+        }
+      ],
+      "default_gems": [
+        "bundler",
+        "pry"
+      ]
+    }
+  },
+  "nginx": {
+    "user": "aono",
+    "group": "aono",
+    "worker_processes": 1,
+    "worker_connections": 1024,
+    "keepalive_timeout": 65,
+    "client_max_body_size": "10M",
+    "listen_port": 80,
+    "server_name": "example.com",
+    "root": "/var/www/hoge/public",
+    "elb_health_checker_user_agent": "ELB-HealthChecker/1.0"
+  },
+  "ip_address": "127.0.0.1",
+  "deploy": {
+    "application_name": "test_app",
+    "environment": "development"
+  },
+  "redirect_https": "false"
 }
